@@ -12,6 +12,7 @@
 *.out
 
 .env
+.DS_Store
 
 target/
 third_party/
