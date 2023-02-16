@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set +e
+
+export PATH=/opt/openvscode-server/bin:/opt/openvscode-server:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin
+mkdir /workspace
+
+if [ ! -d /opt/openvscode-server ]; then
+  wget http://devsapp.functioncompute.com/devsapp/openvscode-server-v1.67.0.zip
+  unzip -d /opt openvscode-server-v1.67.0.zip
+fi
+
+chmod +x /opt/openvscode-server/bin/openvscode-server
+./src/target/webide-server -logtostderr=true
